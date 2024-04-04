@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block titulo %}Meu Ecommerce - Categorias {% endblock %}
+
+{% block conteudo %}
+<article>
+    {% for c in categorias %}
+    <a href="{% url 'listcategorias' c.slug %}" role="button" class="outline">
+        {{ c.nome }}
+    </a>
+    {% empty %}
+    <a href="{% url 'home' %}" role="button" class="outline">
+        Voltar
+    </a>
+    {% endfor %}
+    <a href="{% url 'listallprod' %}" role="button" class="outline">Todos</a>
+</article>
+<article data-theme="light">
+            <h2>
+                Produtos - Categoria
+
+            </h2>
+
+        </article>
+{% endblock %}
