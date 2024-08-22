@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'catproduto',
+    'carrinho',
+    'pedidos',
+    'usuarios',
 ]
 
 MIDDLEWARE = [
@@ -64,6 +67,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                'carrinho.context_processors.carrinho', # para mostrar a atualização quando se adiciona um item ao carrinho
             ],
         },
     },
@@ -79,9 +84,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ecommerce2024',
-        'USER': 'root',
-        'PASSWORD': 'root',
         'HOST': 'localhost',
+        'USER': 'root',
+        'PASSWORD': 'alunoifro',
         'PORT': '3306',
     }
 }
@@ -122,11 +127,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'static'
 MEDIA_URL = 'media/'
+STATIC_ROOT = BASE_DIR /'static'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CART_SESSION_ID = 'cart'
+
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
