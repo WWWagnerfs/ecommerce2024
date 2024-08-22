@@ -44,3 +44,4 @@ class MeuPedidoTemplateView(TemplateView):
         ctx = super().get_context_data(**kwargs)
         ctx['pedido'] = Pedido.objects.get(id=self.request.session.get('idpedido'))
         return ctx
+
